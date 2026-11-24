@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AirTransport.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace AirTransport.GUI
 {
     public partial class FrmBaggage : Form
     {
+        Connect con;
         public FrmBaggage()
         {
             InitializeComponent();
+            con = new Connect();
+        }
+
+        private async void FrmBaggage_Load(object sender, EventArgs e)
+        {
+            dgvAllBaggage.DataSource = await con.GetAllBaggage();
         }
     }
 }

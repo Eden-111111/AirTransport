@@ -73,6 +73,12 @@
     <Compile Include="GUI\FrmAirports.Designer.cs">
       <DependentUpon>FrmAirports.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmBaggage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmBaggage.Designer.cs">
+      <DependentUpon>FrmBaggage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Aircraft.cs" />
     <Compile Include="Models\Airlines.cs" />
     <Compile Include="Models\Airports.cs" />
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmAirports.resx">
       <DependentUpon>FrmAirports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmBaggage.resx">
+      <DependentUpon>FrmBaggage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
