@@ -85,6 +85,30 @@ namespace AirTransport.Models
             return lstBaggages;
         }
 
+        public async Task<List<Bookings>> GetAllBookings()
+        {
+            response = await Client.GetAsync("https://localhost:7180/api/Bookings");
+            if (response.IsSuccessStatusCode)//האם הקוד שחזר מהשרת הוא 200
+            {
+                string data = await response.Content.ReadAsStringAsync();//קורא את תוכן גוף התשובה שהגיע מהשרת כ מחרוזת טקסט (בדרך כלל במבנה JSON).
+                lstBookings = JsonConvert.DeserializeObject<List<Bookings>>(data);//משתמש בספריית Newtonsoft.Json כדי להמיר (לרדות) את מחרוזת ה-JSON שקיבלנו לתוך רשימה של אובייקטים מסוג List<Customers> ב-C#.
+            }
+            else
+                MessageBox.Show("error ");//מציג הודעת שגיאה קופצת למשתמש (MessageBox) המעידה שמשהו השתבש בקריאה.
+            return lstBookings;
+        }
+        public async Task<List<Flights>> GetAllFlights()
+        {
+            response = await Client.GetAsync("https://localhost:7180/api/Flights");
+            if (response.IsSuccessStatusCode)//האם הקוד שחזר מהשרת הוא 200
+            {
+                string data = await response.Content.ReadAsStringAsync();//קורא את תוכן גוף התשובה שהגיע מהשרת כ מחרוזת טקסט (בדרך כלל במבנה JSON).
+                lstFlights = JsonConvert.DeserializeObject<List<Flights>>(data);//משתמש בספריית Newtonsoft.Json כדי להמיר (לרדות) את מחרוזת ה-JSON שקיבלנו לתוך רשימה של אובייקטים מסוג List<Customers> ב-C#.
+            }
+            else
+                MessageBox.Show("error ");//מציג הודעת שגיאה קופצת למשתמש (MessageBox) המעידה שמשהו השתבש בקריאה.
+            return lstFlights;
+        }
 
 
 
