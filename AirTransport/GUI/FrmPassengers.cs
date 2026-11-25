@@ -14,6 +14,7 @@ namespace AirTransport.GUI
     public partial class FrmPassengers : Form
     {
         Connect con;
+        List<Passengers> lstPassengers;
 
         public FrmPassengers()
         {
@@ -23,7 +24,18 @@ namespace AirTransport.GUI
 
         private async void FrmPassengers_Load(object sender, EventArgs e)
         {
-            dgvAllPassengers.DataSource = await con.GetAllPassengers();
+            lstPassengers= await con.GetAllPassengers();
+            dgvAllPassengers.DataSource = lstPassengers.Select(p => new
+            {
+                p.PassengerId,
+                p.FirstName,
+                p.LastName,
+                p.PassportNumber,
+            }).ToList();
+            dgvAllPassengers.Columns[0].HeaderText = "ת.ז.";
+            dgvAllPassengers.Columns[1].HeaderText = "שם פרטי"; 
+            dgvAllPassengers.Columns[2].HeaderText = "שם משפחה";
+            dgvAllPassengers.Columns[3].HeaderText = "מספר דרכון";
         }
     }
 }

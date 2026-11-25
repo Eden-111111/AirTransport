@@ -17,7 +17,7 @@ namespace AirTransport
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmTerminals());
+            Application.Run(new FrmPassengers());
         }
     }
 }
